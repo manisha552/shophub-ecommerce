@@ -11,6 +11,8 @@ as part of the assigned tasks.
 
 ## 📌 Tasks Covered
 
+### ✅ Task 1: ShopHub class diagrams (Product, Order, Cart, User, Payment, Category)
+
 ### ✅ Task 2: UML Diagrams for E-Commerce System
 - Designed class diagrams for core entities:
   - Product
