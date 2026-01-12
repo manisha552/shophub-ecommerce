@@ -1,0 +1,219 @@
+1️⃣ UML Component Diagram — Explanation
+🔹 What this diagram represents
+
+The Component Diagram shows the logical structure of the e-commerce system.
+It explains what software components exist and how they interact with each other.
+
+🔹 Components in the diagram (ShopHub example)
+1. Client Layer
+
+Web Browser
+
+Mobile App
+
+These are the user interfaces through which customers access the system.
+
+2. Frontend Layer
+
+Frontend UI
+
+This component:
+
+Displays pages to users
+
+Sends user requests to backend services
+
+Receives responses and updates the UI
+
+3. Backend Services
+
+User Service – handles login, registration, user data
+
+Product Service – manages product details and inventory
+
+Cart Service – manages shopping cart operations
+
+Order Service – processes orders
+
+Payment Service – handles payment processing
+
+Each service is independent, which makes the system modular.
+
+4. Data Layer
+
+Database
+
+Stores:
+
+User data
+
+Product information
+
+Orders
+
+Cart details
+
+5. External Service
+
+Payment Gateway
+
+An external system used to process online payments securely.
+
+🔹 Why this diagram is important
+
+Helps understand system structure
+
+Shows separation of concerns
+
+Makes the system easier to maintain and scale
+
+Clearly shows how services depend on each other
+
+🔹 Simple explanation line
+
+The component diagram explains how the e-commerce system is divided into software components and how these components interact logically.
+
+2️⃣ UML Deployment Diagram — Explanation
+🔹 What this diagram represents
+
+The Deployment Diagram shows the physical architecture of the system.
+It explains where the software components run in the real world.
+
+🔹 Nodes in the diagram
+1. User Device
+
+Web Browser
+
+Mobile App
+
+This is where users interact with the system.
+
+2. Web Server
+
+Hosts the Frontend UI
+
+Handles incoming requests from users.
+
+3. Application Server
+
+Hosts Backend Services
+
+Executes business logic like order processing and payment handling.
+
+4. Database Server
+
+Hosts the E-commerce Database
+
+Stores all persistent system data.
+
+5. External System
+
+Payment Gateway
+
+A third-party system used for secure payment transactions.
+
+🔹 Why this diagram is important
+
+Shows how the system is deployed physically
+
+Helps in infrastructure planning
+
+Improves understanding of network communication
+
+Useful for DevOps and deployment decisions
+
+🔹 Simple explanation line
+
+The deployment diagram shows how the e-commerce system is physically deployed on different servers and how these servers communicate.
+
+Frontend
+   ↓
+Application Server
+   ↓
+Database   (save order)
+   ↓
+Payment Gateway (process payment)
+   ↓
+Application Server
+   ↓
+Database   (update status)
+
+
+codes
+
+Component code
+
+@startuml
+left to right direction
+
+package "Client Layer" {
+  [Web Browser]
+  [Mobile App]
+}
+
+package "Frontend Layer" {
+  [Frontend UI]
+}
+
+package "Backend Services" {
+  [User Service]
+  [Product Service]
+  [Cart Service]
+  [Order Service]
+  [Payment Service]
+}
+
+package "Data Layer" {
+  [Database]
+}
+
+[Payment Gateway]
+
+[Web Browser] --> [Frontend UI]
+[Mobile App] --> [Frontend UI]
+
+[Frontend UI] --> [User Service]
+[Frontend UI] --> [Product Service]
+[Frontend UI] --> [Cart Service]
+[Frontend UI] --> [Order Service]
+
+[Order Service] --> [Payment Service]
+[Payment Service] --> [Payment Gateway]
+
+[User Service] --> [Database]
+[Product Service] --> [Database]
+[Cart Service] --> [Database]
+[Order Service] --> [Database]
+@enduml
+
+Deployment code
+
+@startuml
+node "User Device" {
+  component "Web Browser"
+  component "Mobile App"
+}
+
+node "Web Server" {
+  component "Frontend UI"
+}
+
+node "Application Server" {
+  component "Backend Services"
+}
+
+node "Database Server" {
+  component "E-commerce Database"
+}
+
+node "External System" {
+  component "Payment Gateway"
+}
+
+"Web Browser" --> "Frontend UI"
+"Mobile App" --> "Frontend UI"
+
+"Frontend UI" --> "Backend Services"
+"Backend Services" --> "E-commerce Database"
+"Backend Services" --> "Payment Gateway"
+@enduml

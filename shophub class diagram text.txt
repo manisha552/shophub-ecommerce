@@ -1,0 +1,60 @@
+@startuml
+left to right direction
+
+class Category {
+  categoryId
+  name
+  addProduct()
+  removeProduct()
+}
+
+class Product {
+  productId
+  name
+  price
+  stockQuantity
+  getPrice()
+  isAvailable()
+}
+
+class User {
+  userId
+  name
+  email
+  login()
+  logout()
+}
+
+class Cart {
+  cartId
+  products
+  totalAmount
+  addProduct()
+  removeProduct()
+  calculateTotal()
+}
+
+class Order {
+  orderId
+  orderDate
+  totalAmount
+  status
+  placeOrder()
+  cancelOrder()
+}
+
+class Payment {
+  paymentId
+  amount
+  paymentMethod
+  paymentStatus
+  processPayment()
+}
+
+Category "1" --> "*" Product : categorizes
+User "1" --> "1" Cart : owns
+User "1" --> "*" Order : places
+Cart "*" --> "*" Product : contains
+Order "*" --> "*" Product : includes
+Order "1" --> "1" Payment : paid 
+@enduml
