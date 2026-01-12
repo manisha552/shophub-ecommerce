@@ -49,9 +49,6 @@ as part of the assigned tasks.
 
 ---
 
-
----
-
 ## 🛠 Technologies Used
 - Java
 - VS Code
