@@ -1,0 +1,18 @@
+Listening on 59675
+User program running
+User program finished
+Product Name: Laptop
+Base Price: $1000.0
+Shipping Cost: 50.0
+Final Price: 1050.0
+-----------------------
+Product Name: E-Book
+Base Price: $20.0
+File Size: 5.0 MB
+Final Price: $20.0
+-----------------------
+Product Name: Consulting
+Base Price: $200.0
+Duration: 3 hours
+Final Price (with tax): $220.0
+-----------------------
